@@ -1,14 +1,14 @@
 # README
 
 ## users_table
-| Column             | Type    | Option                        |
-| -------------------| ------- | ----------------------------- |
-| name               | string  | null: false                   |
-| email              | string  | null: false, uniqueness: true |
-| encrypted_password | string  | null: false                   |
-| first_name         | string  | null: false                   |
-| last_name          | string  | null: false                   |
-| date_of_birth      | integer | null: false                   |
+| Column             | Type     | Option                        |
+| -------------------| -------- | ----------------------------- |
+| name               | string   | null: false                   |
+| email              | string   | null: false, uniqueness: true |
+| encrypted_password | string   | null: false                   |
+| first_name         | string   | null: false                   |
+| last_name          | string   | null: false                   |
+| date_of_birth      | datetime | null: false                   |
 
 ### Association
 has_many :items
@@ -27,11 +27,11 @@ has_many :buyers
 | area            | boolean    | null: false                   |
 | day             | datetime   | null: false                   |
 | price           | integer    | null: false                   |
-| user            | refarences | null: false foreign_key: true |
+| user            | references | null: false foreign_key: true |
 
 ### Association
-has_many :buyers
-
+has_one :users
+has_one :buyers
 
 
 
@@ -40,29 +40,21 @@ has_many :buyers
 | item | refarences | null: false foreign_key: true |
 
 ### Association
-- belongs_to :user
-- belongs_to :item
+- has_one :user
+- has_one :item
 
 
 
-
-## buys_table
-| Column           | Type       | Option                        |
-| ---------------- | ---------- | ----------------------------- |
-| credit_card      | string     | null: false                   |
-| expiration_date  | integer    | null: false                   |
-| security_code    | integer    | null: false                   |
+## address_table
 | post_code        | integer    | null: false                   |
-| prefectures      | string     | null: false                   |
+| prefecture_id    | integer    | null: false                   |
 | municipality     | string     | null: false                   |
 | address          | string     | null: false                   |
 | buildig_name     | string     |                               |
-| telephone_number | integer    | null: false                   
-| user             | refarences | null: false foreign_key: true |
-| item             | refarences | null: false foreign_key: true |
+| telephone_number | integer    | null: false                   |
+| buyer            | references | null: false foreign_key: true |
+
 
 ### Association
-- bolongs_to :user
-- belongs_to :item
-
+- has_many :buyers
 
