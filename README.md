@@ -8,7 +8,7 @@
 | encrypted_password | string   | null: false                   |
 | first_name         | string   | null: false                   |
 | last_name          | string   | null: false                   |
-| date_of_birth      | datetime | null: false                   |
+| date_of_birth      | date     | null: false                   |
 
 ### Association
 has_many :items
@@ -17,36 +17,36 @@ has_many :buyers
 
 
 ## items_table
-| Column          | Type       | Option                        |
-| --------------- | ---------- | ----------------------------- |
-| title           | string     | null: false                   |
-| explanation     | text       | null: false                   |
-| category_id     | integer    | null: false                   |
-| condition       | boolean    | null: false                   |
-| derivery_charge | boolean    | null: false                   |
-| area            | boolean    | null: false                   |
-| day             | datetime   | null: false                   |
-| price           | integer    | null: false                   |
-| user            | references | null: false foreign_key: true |
+| Column             | Type       | Option                        |
+| ------------------ | ---------- | ----------------------------- |
+| title              | string     | null: false                   |
+| explanation        | text       | null: false                   |
+| category_id        | integer    | null: false                   |
+| condition_id       | integer    | null: false                   |
+| derivery_charge_id | integer    | null: false                   |
+| area_id            | integer    | null: false                   |
+| day_id             | integer    | null: false                   |
+| price              | integer    | null: false                   |
+| user               | references | null: false foreign_key: true |
 
 ### Association
-has_one :users
-has_one :buyers
+- belongs_to :user
+- has_one :buyer
 
 
 
 ## buyers_table
-| user | refarences | null: false foreign_key: true |
-| item | refarences | null: false foreign_key: true |
+| user | references | null: false foreign_key: true |
+| item | references | null: false foreign_key: true |
 
 ### Association
-- has_one :user
-- has_one :item
-
+- belongs_to :user
+- belongs_to :item
+- has_one :adrress
 
 
 ## address_table
-| post_code        | integer    | null: false                   |
+| post_code        | string     | null: false                   |
 | prefecture_id    | integer    | null: false                   |
 | municipality     | string     | null: false                   |
 | address          | string     | null: false                   |
@@ -56,5 +56,5 @@ has_one :buyers
 
 
 ### Association
-- has_many :buyers
+- has_one :buyer
 
