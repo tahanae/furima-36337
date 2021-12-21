@@ -11,7 +11,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.0]
       t.string :last_name,          null: false
       t.string :first_name_furigana, null: false
       t.string :last_name_furigana,  null: false
-      t.date   :dete_of_birth,       null: false
+      t.date   :date_of_birth,       null: false
 
 
       ## Recoverable
