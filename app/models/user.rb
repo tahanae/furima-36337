@@ -8,10 +8,11 @@ class User < ApplicationRecord
 
     validates :name,                presence: true
     validates :password,            presence: true, length: { minimum: 6}
-    validates :first_name,          presence: true
-    validates :last_name,           presence: true
-    validates :first_name_furigana, presence: true
-    validates :last_name_furigana,  presence: true
-    validates :date_of_birth,       presence: true
+    validates :email,               presence: true, format: {with: /\A\S+@\S+\.\S+\z/ }
+    validates :first_name,          presence: true, format: {with: /\A[ぁ-んァ-ン一-龥]/ }
+    validates :last_name,           presence: true, format: {with: /\A[ぁ-んァ-ン一-龥]/ }
+    validates :first_name_furigana, presence: true, format: {with: /\A[ァ-ヶー－]+\z/ }
+    validates :last_name_furigana,  presence: true, format: {with: /\A[ァ-ヶー－]+\z/ }
+    validates :date_of_birth,       presence: true, format: {with: /\A\d{4}-\d{2}-\d{2}\z/ }
     
 end
