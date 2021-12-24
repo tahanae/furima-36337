@@ -22,9 +22,9 @@ RSpec.describe User, type: :model do
     end
     it '重複したemailが存在する場合登録できない' do
       @user.save
-      another_user.email = FactoryBot.build(:user, email:@user.email)
-      another_user.email = @user.email
-      expect(another_user.email.errors.full_messages).to include('Email is invalid')
+      another_user = FactoryBot.build(:user)
+      another_user.valid?
+      expect(another_user.errors.full_messages).to include('Encrypted password is invalid')
     end
     it 'emailに@を含まない場合は登録できない' do
       @user.email = 'hogehuga.com'
