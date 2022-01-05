@@ -43,10 +43,10 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Condition must be other than 1")
       end
 
-      it 'DeriveryChargeの選択が「 --- 」では投稿できない' do
-        @item.DeriveryCharge_id = 1 
+      it 'derivery_chargeの選択が「 --- 」では投稿できない' do
+        @item.derivery_charge_id = 1 
         @item.valid?
-        expect(@item.errors.full_messages).to include("Deriverycharge must be other than 1")
+        expect(@item.errors.full_messages).to include("Derivery charge must be other than 1")
       end
 
       it 'areaの選択が「 --- 」では投稿できない' do
@@ -55,10 +55,10 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Area must be other than 1")
       end
 
-      it 'ScheduledDeliveryの選択が「 --- 」では投稿できない' do
-        @item.ScheduledDelivery_id = 1 
+      it 'scheduled_deliveryの選択が「 --- 」では投稿できない' do
+        @item.scheduled_delivery_id = 1 
         @item.valid?
-        expect(@item.errors.full_messages).to include("Scheduleddelivery must be other than 1")
+        expect(@item.errors.full_messages).to include("Scheduled delivery must be other than 1")
       end
 
       it 'priceが空は投稿できない' do

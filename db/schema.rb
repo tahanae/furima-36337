@@ -38,9 +38,9 @@ ActiveRecord::Schema.define(version: 2021_12_25_144751) do
     t.text "explanation", null: false
     t.integer "category_id", null: false
     t.integer "condition_id", null: false
-    t.integer "DeriveryCharge_id", null: false
+    t.integer "derivery_charge_id", null: false
     t.integer "area_id", null: false
-    t.integer "ScheduledDelivery_id", null: false
+    t.integer "scheduled_delivery_id", null: false
     t.integer "price", null: false
     t.bigint "user_id", null: false
     t.text "image"

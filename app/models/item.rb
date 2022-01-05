@@ -7,9 +7,9 @@
       validates :explanation,          presence: true, length: { maximum: 1000 }
       validates :category_id,          presence: true, numericality: { other_than: 1 }
       validates :condition_id,         presence: true, numericality: { other_than: 1 }
-      validates :DeriveryCharge_id,    presence: true, numericality: { other_than: 1 }
+      validates :derivery_charge_id,    presence: true, numericality: { other_than: 1 }
       validates :area_id,              presence: true, numericality: { other_than: 1 }
-      validates :ScheduledDelivery_id, presence: true, numericality: { other_than: 1 }
+      validates :scheduled_delivery_id, presence: true, numericality: { other_than: 1 }
       validates :user,                 presence: true
 
 
@@ -26,9 +26,9 @@
     extend ActiveHash::Associations::ActiveRecordExtensions
     belongs_to_active_hash :category
     belongs_to_active_hash :condition
-    belongs_to_active_hash :DeriveryCharge
+    belongs_to_active_hash :derivery_charge
     belongs_to_active_hash :area
-    belongs_to_active_hash :ScheduledDelivery
+    belongs_to_active_hash :scheduled_delivery
 
   end
   
