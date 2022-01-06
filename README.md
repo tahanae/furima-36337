@@ -19,17 +19,17 @@ has_many :buyers
 
 
 ## items_table
-| Column             | Type       | Option                        |
-| ------------------ | ---------- | ----------------------------- |
-| title              | string     | null: false                   |
-| explanation        | text       | null: false                   |
-| category_id        | integer    | null: false                   |
-| condition_id       | integer    | null: false                   |
-| derivery_charge_id | integer    | null: false                   |
-| area_id            | integer    | null: false                   |
-| shipping_day_id    | integer    | null: false                   |
-| price              | integer    | null: false                   |
-| user               | references | null: false foreign_key: true |
+| Column                | Type       | Option                        |
+| --------------------- | ---------- | ----------------------------- |
+| title                 | string     | null: false                   |
+| explanation           | text       | null: false                   |
+| category_id           | integer    | null: false                   |
+| condition_id          | integer    | null: false                   |
+| derivery_charge_id    | integer    | null: false                   |
+| area_id               | integer    | null: false                   |
+| scheduled_delivery_id | integer    | null: false                   |
+| price                 | integer    | null: false                   |
+| user                  | references | null: false foreign_key: true |
 
 ### Association
 - belongs_to :user
