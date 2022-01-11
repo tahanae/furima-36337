@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-
+  before_action :authenticate_user!, expect: [:index, :show]
 #  before_action :move_to_index, only: [:edit, :update, :destroy]
 
   def index
@@ -24,9 +24,9 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
 
-  def edit
-    @item = Item.find(params[:id])
-  end
+#  def edit
+#    @item = Item.find(params[:id])
+#  end
 
 #  def destroy
 #    @items = Item.find(params[:id])
