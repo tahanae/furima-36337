@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!, expect: [:index]
+  before_action :authenticate_user!, expect: [:index, :show]
 #  before_action :move_to_index, only: [:edit, :update, :destroy]
 
   def index
@@ -20,6 +20,14 @@ class ItemsController < ApplicationController
     end
   end
 
+  def show
+    @item = Item.find(params[:id])
+  end
+
+#  def edit
+#    @item = Item.find(params[:id])
+#  end
+
 #  def destroy
 #    @items = Item.find(params[:id])
 #    if @items.destroy
@@ -33,15 +41,7 @@ class ItemsController < ApplicationController
 #    @items = Item.find(params[:id])
 #  end
 
-#  def edit
-#    redirect_to root_path 
-#  end
-
 #  def update
-#    @items = Item.find(params[:id])
-#  end
-
-#  def show
 #    @items = Item.find(params[:id])
 #  end
 
